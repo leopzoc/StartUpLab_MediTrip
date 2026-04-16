@@ -3,5 +3,5 @@
 THIS Progect borns to solve mediacal issues for tourists.
 
 ## Features
- BE INUSEFUL
+ BE INUSEFUL at all
 - 
