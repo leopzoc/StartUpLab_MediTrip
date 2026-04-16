@@ -1,9 +1,11 @@
 from fastapi import FastAPI
-from fastapi import HTMLResponse
+from fastapi.responses import HTMLResponse
 
 
 app = FastAPI()
 
+
+emails = ["leonardo.pulzone@gmail.com","giuseppe@peppe.it","francesco@francesco.it"]
 
 app.title = "MediTrip API"
 app.version = "0.0.1"
@@ -14,9 +16,16 @@ def read_root():
 
 
 @app.get("/home", tags=["Home"])
-def read_root():
-    return {"CIAO BELLI"}
+def read_home():
+    return {"HOME"}
 
 
+@app.get("/Email/{email}", tags=["Home"])
+def get_email(email: str):
+    for e in emails:
+        if e[0] == email:
+            return "ciao leonardo!"
+        else:
+            return None
 
 
