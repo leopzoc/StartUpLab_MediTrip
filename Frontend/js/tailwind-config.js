@@ -4,8 +4,7 @@ tailwind.config = {
     darkMode: "class",
     theme: {
         extend: {
-            // Sezione colori: qui sono mappati tutti i colori del brand Meditrip/CareItaly.
-            // Quando scriveremo 'bg-primary' in HTML, Tailwind pescherà il colore '#506300' da qui.
+
             colors: {
                 "secondary-fixed": "#eee854",
                 "outline-variant": "#acadad",

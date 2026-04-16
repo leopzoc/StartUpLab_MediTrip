@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<!-- Il tag principale dell'HTML. Definiamo la lingua e la classe "light" per la Modalità Chiara. -->
+
 <html class="light" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- Modifica il titolo della tab sul browser in alto -->
     <title>Meditrip Onboarding - Step 1</title>
 
     <!-- Importiamo i file CSS locali (Custom Styles) e i Font (già importati e configurati dentro style.css) -->
@@ -19,12 +18,11 @@
          Questo motore leggerà dinamicamente le classi come "bg-surface" e applicherà i CSS matematicamente perfetti -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
-    <!-- Application Logic - Importiamo la nostra logica (bottone continua, nomi). 
-         'defer' ordina alla pagina HTML di finire di caricare le grafiche prima di leggere questo script così il sito risulta veloce senza blocchi -->
+
     <script src="js/app.js" defer></script>
 </head>
 
-<!-- min-h-screen fa in modo che l'Altezza Minima (h) sia sempre pari al 100% dello "screen". flex-col impila l'header ed i blocchi sotto in verticale -->
+
 
 
 
@@ -39,8 +37,7 @@
 <body class="bg-surface text-on-surface min-h-screen flex flex-col items-center">
 
     <!-- === HEADER: Top Navigation Bar superiore === -->
-    <!-- z-50 lo ordina graficamente sopra a tutti gli altri elementi (layer z superiore).
-         backdrop-blur fonde i blocchi dietro con effetto "vetro offuscato smussato". -->
+
     <header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl">
         <div class="flex items-center justify-between px-6 py-4 max-w-md mx-auto w-full">
 
@@ -59,7 +56,7 @@
         </div>
     </header>
 
-    <!-- === MAIN CONTENT CONTAINER (Il box centrale dove vivono davvero i moduli dei form) ===
+    <!-- === MAIN CONTENT CONTAINER 
          Max width di 420px replica uno standard Mobile di larghezza orizzontale perfetta. Da PC rimane centrato con margini ai lati. -->
     <main class="w-full max-w-[420px] px-6 pt-24 pb-32 flex flex-col min-h-screen">
 
@@ -95,10 +92,9 @@
 
             <!-- [1] Name Input (Modulo Nome) -->
             <div class="space-y-2">
-                <!-- Il tag FOR "first-name" è vitale per collegare semanticamente questa Scritta (Label) e far muovere ai non vedenti/lettori vocali il mouse direttamente nell'input associato -->
+
                 <label class="block text-label-md font-bold text-on-surface-variant ml-1" for="first-name">First
                     name</label>
-                <!-- Un padre relative permette alle icone absolute di non scappare in giro ma mettersi negli angoli del relativo genitore  -->
                 <div class="relative group">
                     <input
                         class="w-full h-14 bg-surface-container-low border border-gray-200 rounded-lg px-4 text-on-surface placeholder:text-outline-variant focus:bg-surface-container-highest focus:ring-2 focus:ring-primary/20 transition-all duration-200"
@@ -119,10 +115,7 @@
                 <label class="block text-label-md font-bold text-on-surface-variant ml-1" for="country">Where are you
                     from?</label>
                 <div class="relative">
-                    <!-- Icona text (emoji della bandierina) bloccata a sx (left-4) di puro accessorio inaccessibile ai click (pointer-events-none) -->
-                    <div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-                        <span class="text-lg">🇮🇹</span>
-                    </div>
+
                     <!-- pl-12 (padding-left 12) "Svuota" il lato sinistro dentro all'input testuale per far letteralmente posto alla bandierina stampata qua sopra -->
                     <select
                         class="w-full h-14 bg-surface-container-low border border-gray-200 rounded-lg pl-12 pr-10 text-on-surface appearance-none focus:bg-surface-container-highest focus:ring-2 focus:ring-primary/20 transition-all duration-200"
