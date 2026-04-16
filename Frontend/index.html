@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!-- Il tag principale dell'HTML. Definiamo la lingua e la classe "light" per la Modalità Chiara. -->
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Modifica il titolo della tab sul browser in alto -->
+    <title>Meditrip Onboarding - Step 1</title>
+
+    <!-- Importiamo i file CSS locali (Custom Styles) e i Font (già importati e configurati dentro style.css) -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Inizializziamo il nostro file Javascript che racchiude i Colori e il design estetico appositamente per Tailwind -->
+    <script src="js/tailwind-config.js"></script>
+
+    <!-- Carichiamo il network esterno di Tailwind (attraverso CDN). 
+         Questo motore leggerà dinamicamente le classi come "bg-surface" e applicherà i CSS matematicamente perfetti -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Application Logic - Importiamo la nostra logica (bottone continua, nomi). 
+         'defer' ordina alla pagina HTML di finire di caricare le grafiche prima di leggere questo script così il sito risulta veloce senza blocchi -->
+    <script src="js/app.js" defer></script>
+</head>
+
+<!-- min-h-screen fa in modo che l'Altezza Minima (h) sia sempre pari al 100% dello "screen". flex-col impila l'header ed i blocchi sotto in verticale -->
+
+
+
+
+
+
+
+
+
+
+
+<body class="bg-surface text-on-surface min-h-screen flex flex-col items-center">
+
+    <!-- === HEADER: Top Navigation Bar superiore === -->
+    <!-- z-50 lo ordina graficamente sopra a tutti gli altri elementi (layer z superiore).
+         backdrop-blur fonde i blocchi dietro con effetto "vetro offuscato smussato". -->
+    <header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl">
+        <div class="flex items-center justify-between px-6 py-4 max-w-md mx-auto w-full">
+
+            <!-- Tasto FRECCIA: active:scale-95 genera una finta transizione di abbassamento elastico quando viene cliccato per dare fisicità -->
+            <span
+                class="material-symbols-outlined text-on-surface-variant cursor-pointer active:scale-95 transition-transform"
+                data-icon="arrow_back">arrow_back</span>
+
+            <!-- LOGO: "Meditrip" -->
+            <span class="font-manrope tracking-tight font-extrabold text-xl text-stone-800">Meditrip</span>
+
+            <!-- Tasto CHIUDI / X della modale -->
+            <span
+                class="material-symbols-outlined text-on-surface-variant cursor-pointer active:scale-95 transition-transform"
+                data-icon="close">close</span>
+        </div>
+    </header>
+
+    <!-- === MAIN CONTENT CONTAINER (Il box centrale dove vivono davvero i moduli dei form) ===
+         Max width di 420px replica uno standard Mobile di larghezza orizzontale perfetta. Da PC rimane centrato con margini ai lati. -->
+    <main class="w-full max-w-[420px] px-6 pt-24 pb-32 flex flex-col min-h-screen">
+
+        <!-- --- Progress Bar Section (Barretta colorata degli steps superiori) --- -->
+        <div class="mb-12">
+            <!-- Ripartisce i due testi mettendoli agli opposti orizzontali estremi della riga (flex justify-between) -->
+            <div class="flex justify-between items-end mb-3">
+                <span class="text-primary font-bold tracking-tight text-sm uppercase">Onboarding</span>
+                <span class="text-on-surface-variant font-medium text-xs">Step 1 of 4</span>
+            </div>
+            <!-- Barretta Vuota (Binario di avanzamento scuro) -->
+            <div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+                <!-- Porzione Barretta riempita. Sta al 25% "w-1/4" (che significa Width: 1 fratto 4) ed emette bagliore d'ombra giallo (shadow) -->
+                <div class="h-full bg-primary-container w-1/4 rounded-full shadow-[0_0_8px_rgba(210,251,59,0.4)]"></div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- === FORM/MODULI (Campi d'inserimento) === -->
+        <!-- space-y-8 inietta dello Spazio (Margin Y) tra ogni div posizionato qua sotto per mantenere fiato ed aria identici e precisi  -->
+        <div class="space-y-8">
+
+            <!-- [1] Name Input (Modulo Nome) -->
+            <div class="space-y-2">
+                <!-- Il tag FOR "first-name" è vitale per collegare semanticamente questa Scritta (Label) e far muovere ai non vedenti/lettori vocali il mouse direttamente nell'input associato -->
+                <label class="block text-label-md font-bold text-on-surface-variant ml-1" for="first-name">First
+                    name</label>
+                <!-- Un padre relative permette alle icone absolute di non scappare in giro ma mettersi negli angoli del relativo genitore  -->
+                <div class="relative group">
+                    <input
+                        class="w-full h-14 bg-surface-container-low border border-gray-200 rounded-lg px-4 text-on-surface placeholder:text-outline-variant focus:bg-surface-container-highest focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+                        id="first-name" placeholder="Emma" type="text">
+                    <!-- class 'right-4' posiziona l'iconina Matita/Edit a filo 4px dall'estremità destra del rettangolino. Rimane invisibile opacity-0 ovisibilissima in ascolto di Hover  -->
+                    <!--
+                    <div class="absolute inset-y-0 right-4 flex items-center">
+                        <span
+                            class="material-symbols-outlined text-primary-fixed-dim opacity-0 group-focus-within:opacity-100 transition-opacity"
+                            data-icon="edit">edit</span>
+                    </div>
+                    -->
+                </div>
+            </div>
+
+            <!-- [2] Country Searchable Dropdown (Modulo Nazione) -->
+            <div class="space-y-2">
+                <label class="block text-label-md font-bold text-on-surface-variant ml-1" for="country">Where are you
+                    from?</label>
+                <div class="relative">
+                    <!-- Icona text (emoji della bandierina) bloccata a sx (left-4) di puro accessorio inaccessibile ai click (pointer-events-none) -->
+                    <div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                        <span class="text-lg">🇮🇹</span>
+                    </div>
+                    <!-- pl-12 (padding-left 12) "Svuota" il lato sinistro dentro all'input testuale per far letteralmente posto alla bandierina stampata qua sopra -->
+                    <select
+                        class="w-full h-14 bg-surface-container-low border border-gray-200 rounded-lg pl-12 pr-10 text-on-surface appearance-none focus:bg-surface-container-highest focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+                        id="country">
+                        <option value="it">Italy</option>
+                        <option value="gb">United Kingdom</option>
+                        <option value="us">United States</option>
+                        <option value="fr">France</option>
+                        <option value="de">Germany</option>
+                        <option value="es">Spain</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- [3] Language Dropdown (Modulo Lingua) -->
+            <div class="space-y-2">
+                <label class="block text-label-md font-bold text-on-surface-variant ml-1" for="language">What language
+                    do you prefer?</label>
+                <div class="relative">
+                    <select
+                        class="w-full h-14 bg-surface-container-low border border-gray-200 rounded-lg px-4 text-on-surface appearance-none focus:bg-surface-container-highest focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+                        id="language">
+                        <option value="it">Italiano</option>
+                        <option selected="" value="en">English</option> <!-- Selezionato di Base! -->
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                    </select>
+                    <!-- Icona pallina mappamondo
+                    <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                        <span class="material-symbols-outlined text-on-surface-variant"
+                            data-icon="language">language</span>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <!--         
+        <div class="mt-auto pt-16 pb-8">
+            <div class="w-full h-40 rounded-xl overflow-hidden relative surface-container-low">
+                
+                <img alt="abstract lifestyle"
+                    class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB16cjv4AKqISYByy_cE4mXakDdd1NKyNXtBdgkP_7TE1fQXZZsQ3WpTAvxMH-mh_rt-8bJT0g2Bz_ZgQpedMRMcUDVE7hc0hHtonvcaNyPy5xZFXsiLrZD-ylqtVFcR_EPUr4hguTsYdg-l-9mWKNDn_KAY6mH5g8fOmHzsXQ3r_Bd62thetfgNNJWvQ1jz7ms5blf_nKuc3nV9Yol7nsX8Ngiq2QVq86q3MVPEZ8sC2bgV24LahNSnDi7NhZdMJiYXrakoOYi1AvH">
+
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+
+                <div class="absolute bottom-4 left-4 flex items-center gap-2">
+                   
+                    <div class="h-2 w-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(214,255,63,0.8)]">
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Live
+                        Experience Tuning</span>
+                </div>
+            </div>
+        </div>
+    </main> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- === FOOTER (Tasto CONTINUA inferiore fluttuante e fisso) === -->
+        <!-- Questo Footer è fisso al 100% (fixed) incollato alla pancia del telefono (bottom-0 left-0 right-0). Siede a z compresso e fa vetro sfuocato sulle foto che gli passano dietro scrollando. -->
+        <div
+            class="fixed bottom-0 left-0 right-0 w-full max-w-[420px] mx-auto px-6 py-8 bg-white/70 backdrop-blur-xl rounded-t-2xl">
+            <!-- Bottone in gradiente da verde a verde scuro, scala e simula pressione elastica col click  -->
+            <button id="continue-btn"
+                class="w-full h-16 bg-gradient-to-br from-primary-fixed-dim to-primary text-on-primary font-bold text-lg rounded-lg shadow-lg active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                Continue
+                <!-- Icona Freccia avanti incapsula per dare un chiaro segnale Call to Action orientato al muoversi verso destra -->
+                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+            </button>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- === ARTE E DECORAZIONI DI SFONDO in Body === -->
+        <!-- Queste due sono sfere aliene invisibili. Avendo il tag "blur-3xl" sembreranno delle chiazze/batuffoli di nuvola di colori caldi in basso a sinistra o alto a destra in sfumata! -->
+        <!-- E vengono spedite negli strati z-index '-10' , ovvero stanno sepolte dietro al sito ed alle foto che l'utente usa per abbellire il clima. -->
+        <div class="fixed -top-24 -right-24 w-64 h-64 bg-primary-container/20 rounded-full blur-3xl -z-10"></div>
+        <div class="fixed -bottom-24 -left-24 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl -z-10"></div>
+</body>
+
+</html>
