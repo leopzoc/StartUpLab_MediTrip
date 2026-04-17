@@ -1,9 +1,11 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
-
+import sqlite3
 
 app = FastAPI()
 
+conn = sqlite3.connect("database.db", check_same_thread=False)
+cursor = conn.cursor()
 
 emails = ["leonardo.pulzone@gmail.com","giuseppe@peppe.it","francesco@francesco.it"]
 
@@ -23,7 +25,7 @@ def read_home():
 @app.get("/Email/{email}", tags=["Home"])
 def get_email(email: str):
     for e in emails:
-        if e[0] == email:
+        if e == email:
             return "ciao leonardo!"
         else:
             return None
