@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const firstNameInput = document.getElementById('first-name');
             const countrySelect = document.getElementById('country');
             const languageSelect = document.getElementById('language');
+            const lastNameInput = document.getElementById('last-name');
 
             // Controllo di sicurezza rapido: se non troviamo il modulo del nome non siamo in index.html, non c'è nulla da inviare, esci (return).
             if (!firstNameInput) return;
@@ -77,8 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('user_name', firstName);
             localStorage.setItem('user_country', countrySelect.value);
             localStorage.setItem('user_language', languageSelect.value);
-            // Aspettiamo che la richiesta al server finisca prima di cambiare pagina!
-            //await handleSubmit();
+            localStorage.setItem('user_last_name', lastNameInput.value.trim());
 
             // Redirezioniamo (cambiamo la schermata) spingendo il browser ad aprire il file del passaggio due 'step2.html'
             window.location.href = 'step2.html';

@@ -1,19 +1,23 @@
 const createAccountBtn = document.getElementById('create-account-btn');
 const backBtn = document.getElementById('back-btn');
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
+
 
 async function handleSubmit() {
     // 1. Recuperiamo tutti i dati salvati nei passaggi precedenti dal localStorage
     const nome = localStorage.getItem('user_name') || "";
+    const lastName = localStorage.getItem('user_last_name') || "";
     const paese = localStorage.getItem('user_country') || "";
     const lingua = localStorage.getItem('user_language') || "";
     const citta = localStorage.getItem('user_city') || "";
     const universita = localStorage.getItem('user_university') || "";
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
 
     // 2. Creiamo un UNICO grande oggetto con tutti i dati
     const datiDefinitivi = {
         nome: nome,
+        cognome: lastName,
         paese: paese,
         lingua: lingua,
         città: citta,
@@ -42,7 +46,7 @@ if (createAccountBtn) {
 
         // Attendi che la richiesta al server finisca prima di cambiare pagina
         await handleSubmit();
-        
+
         // Vai alla pagina successiva
         window.location.href = 'Fine.html';
     });
