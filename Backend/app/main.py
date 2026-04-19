@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
-
 from fastapi.middleware.cors import CORSMiddleware
+import sqlite3
 
 app = FastAPI()
 # ---sbloccare il traffico ---
@@ -13,6 +13,8 @@ app.add_middleware(
     allow_headers=["*"], # Permette tutti gli header (Content-Type, ecc.)
 )
 
+conn = sqlite3.connect("database.db", check_same_thread=False)
+cursor = conn.cursor()
 
 
 accounts = []
@@ -32,7 +34,7 @@ def read_home():
 @app.get("/Email/{email}", tags=["Home"])
 def get_email(email: str):
     for e in emails:
-        if e[0] == email:
+        if e == email:
             return "ciao leonardo!"
         else:
             return None
