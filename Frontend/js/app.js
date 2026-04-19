@@ -17,23 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // Funzione che invia i dati al server
-    async function handleSubmit() {
-        const dati = {
-            nome: document.getElementById("first-name").value,
-            paese: document.getElementById("country").value,
-            lingua: document.getElementById("language").value
-        };
-
-        const response = await fetch("http://localhost:8000/registrazione", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(dati)
-        });
-
-        const risultato = await response.json();
-        console.log(risultato);
-    }
+    // La funzione handleSubmit è stata spostata sullo step finale (Email.js)
 
 
 
@@ -82,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Attacchiamo questo paragrafo appena nato fisicamente allo schermo in corrispondenza di dove si trova il box del nome
                 firstNameInput.parentNode.appendChild(errorMsg);
 
-                // Interrompiamo lo script (return). Siccome ci ritiriamo con un abort, il bottone "Continue" perde il suo effetto e NON proseguiamo sulle altre pagine
+                // Interrompiamo lo script (return).
                 return;
             }
 

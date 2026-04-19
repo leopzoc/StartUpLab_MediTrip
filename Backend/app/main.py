@@ -3,6 +3,26 @@ from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 import sqlite3
 
+# --- SETUP DATABASE SQLITE ---
+# Si connette al file database.db (se non esiste lo crea lui)
+conn = sqlite3.connect("database.db", check_same_thread=False)
+cursor = conn.cursor()
+
+# Creiamo la tabella "utenti" se non esiste già, con colonne per ogni dato
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS utenti (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT,
+    paese TEXT,
+    lingua TEXT,
+    citta TEXT,
+    universita TEXT,
+    email TEXT UNIQUE,
+    password TEXT
+)
+""")
+conn.commit()
+
 app = FastAPI()
 # ---sbloccare il traffico ---
 app.add_middleware(
@@ -13,8 +33,7 @@ app.add_middleware(
     allow_headers=["*"], # Permette tutti gli header (Content-Type, ecc.)
 )
 
-conn = sqlite3.connect("database.db", check_same_thread=False)
-cursor = conn.cursor()
+# (Rimosse le connessioni sqlite3 duplicate qui siccome l'ho spostata sopra)
 
 
 accounts = []
@@ -42,17 +61,35 @@ def get_email(email: str):
 
 @app.post("/registrazione", tags=["Users"])
 async def registrazione(dati: dict):
-    accounts.append(dati)
-
-    print(accounts)
-    return {"status":"ok!"}
+    # Diciamo a Python di usare i dati ricevuti per inserirli nel Database!
+    try:
+        cursor.execute("""
+            INSERT INTO utenti (nome, paese, lingua, citta, universita, email, password) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            dati.get("nome"), 
+            dati.get("paese"), 
+            dati.get("lingua"), 
+            dati.get("città"), 
+            dati.get("università"), 
+            dati.get("email"), 
+            dati.get("password")
+        ))
+        conn.commit()
+        return {"status": "ok!", "message": "Utente registrato nel database!"}
+    except Exception as e:
+        return {"status": "error!", "message": str(e)}
 
 @app.post("/login", tags=["Users"])
 async def login(dati: dict):
-    for a in accounts:
-        if a["email"] == dati["email"] and a["password"] == dati["password"]:
-            return {"status":"ok!"}
-    return {"status":"error!"}
+    # Cerchiamo l'utente nel Database invece che nella lista "accounts"
+    cursor.execute("SELECT * FROM utenti WHERE email = ? AND password = ?", (dati["email"], dati["password"]))
+    utente = cursor.fetchone()
+    
+    if utente:
+        return {"status": "ok!", "message": "Login avvenuto con successo!"}
+    
+    return {"status": "error!", "message": "Credenziali errate"}
 
 
 
