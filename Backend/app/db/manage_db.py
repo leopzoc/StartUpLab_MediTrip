@@ -17,7 +17,10 @@ CREATE TABLE IF NOT EXISTS users (
     email TEXT UNIQUE,
     first_name TEXT,
     last_name TEXT,
-    country TEXT,
+    nationality TEXT,
+    language TEXT,
+    university TEXT,
+    city TEXT,
     current_location TEXT,
     password TEXT,
     gender TEXT

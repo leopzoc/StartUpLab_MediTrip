@@ -4,37 +4,19 @@ from fastapi.middleware.cors import CORSMiddleware
 import sqlite3
 
 # --- SETUP DATABASE SQLITE ---
-# Si connette al file database.db (se non esiste lo crea lui)
-conn = sqlite3.connect("database.db", check_same_thread=False)
+# Ci connettiamo al file database.db creato da 'db/manage_db.py'!
+conn = sqlite3.connect("db/database.db", check_same_thread=False)
 cursor = conn.cursor()
-
-# Creiamo la tabella "utenti" se non esiste già, con colonne per ogni dato
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS utenti (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nome TEXT,
-    paese TEXT,
-    lingua TEXT,
-    citta TEXT,
-    universita TEXT,
-    email TEXT UNIQUE,
-    password TEXT
-)
-""")
-conn.commit()
 
 app = FastAPI()
 # ---sbloccare il traffico ---
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # Permette a tutti i siti di contattarti (per ora va bene così)
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"], # Permette tutti i metodi (POST, GET, OPTIONS, ecc.)
-    allow_headers=["*"], # Permette tutti gli header (Content-Type, ecc.)
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
-
-# (Rimosse le connessioni sqlite3 duplicate qui siccome l'ho spostata sopra)
-
 
 accounts = []
 app.title = "MediTrip API"
@@ -61,29 +43,40 @@ def get_email(email: str):
 
 @app.post("/registrazione", tags=["Users"])
 async def registrazione(dati: dict):
-    # Diciamo a Python di usare i dati ricevuti per inserirli nel Database!
     try:
+        # Usiamo i nomi delle colonne aggiornati (nationality, language, university, city) scritte in manage_db.py
         cursor.execute("""
-            INSERT INTO utenti (nome, paese, lingua, citta, universita, email, password) 
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO users (email, first_name, last_name, nationality, language, university, city, password) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         """, (
-            dati.get("nome"), 
-            dati.get("paese"), 
-            dati.get("lingua"), 
-            dati.get("città"), 
-            dati.get("università"), 
             dati.get("email"), 
+            dati.get("nome"),         
+            dati.get("cognome", ""),  
+            dati.get("paese"),         # Mappato su nationality
+            dati.get("lingua", ""),    # Mappato su language
+            dati.get("università", ""),# Mappato su university
+            dati.get("città", ""),     # Mappato su city
             dati.get("password")
         ))
         conn.commit()
-        return {"status": "ok!", "message": "Utente registrato nel database!"}
+        
+        # Leggiamo TUTTI gli utenti (nessun WHERE) e usiamo fetchall() per prenderli in blocco
+        cursor.execute("SELECT * FROM users")
+        tutti_gli_utenti = cursor.fetchall()
+        
+        # Stampiamo la lista nel terminale a scopi di debug
+        print("--- LISTA UTENTI NEL DB ---")
+        for u in tutti_gli_utenti:
+            print(u)
+            
+        return {"status": "ok!", "message": "Utente registrato nel database ufficiale!"}
     except Exception as e:
         return {"status": "error!", "message": str(e)}
 
 @app.post("/login", tags=["Users"])
 async def login(dati: dict):
-    # Cerchiamo l'utente nel Database invece che nella lista "accounts"
-    cursor.execute("SELECT * FROM utenti WHERE email = ? AND password = ?", (dati["email"], dati["password"]))
+    # Facciamo finta di cercare nella tabella "users"
+    cursor.execute("SELECT * FROM users WHERE email = ? AND password = ?", (dati["email"], dati["password"]))
     utente = cursor.fetchone()
     
     if utente:
