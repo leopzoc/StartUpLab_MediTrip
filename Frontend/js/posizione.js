@@ -20,7 +20,8 @@ async function handleSubmit() {
 
 
 
-continueBtn.addEventListener('click', () => {
-    //handleSubmit()
+continueBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    // await handleSubmit();
     window.location.href = 'step3.html';
 });

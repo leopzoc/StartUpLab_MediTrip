@@ -21,13 +21,15 @@ async function handleSubmit() {
 
 
 if (createAccountBtn) {
-    createAccountBtn.addEventListener('click', () => {
+    createAccountBtn.addEventListener('click', async (e) => {
+        e.preventDefault(); // Prevent default form submission if inside a form
 
         // ... validazione email e password
 
+        // Attendi che la richiesta al server finisca prima di cambiare pagina
+        await handleSubmit();
+        
         // Vai alla pagina successiva
-
-        handleSubmit()
         window.location.href = 'Fine.html';
     });
 }
