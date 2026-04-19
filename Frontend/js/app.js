@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('user_country', countrySelect.value);
             localStorage.setItem('user_language', languageSelect.value);
             // Aspettiamo che la richiesta al server finisca prima di cambiare pagina!
-            await handleSubmit();
+            //await handleSubmit();
 
             // Redirezioniamo (cambiamo la schermata) spingendo il browser ad aprire il file del passaggio due 'step2.html'
             window.location.href = 'step2.html';

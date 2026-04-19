@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Meditrip Onboarding - Step 1</title>
+
+    <!-- Preconnect per Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- CSS locale -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- App JS -->
+    <script src="../js/Email.js" defer></script>
+</head>
+
+<body
+    class="bg-surface-container-lowest text-on-surface min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+    <!-- Top Navigation Bar (Shared Component Strategy: Suppressed Shell for Focused Flow) -->
+    <header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl">
+        <div class="flex items-center justify-between px-6 py-4 max-w-md mx-auto w-full">
+            <button id="back-btn"
+                class="w-10 h-10 flex items-center justify-start text-on-surface hover:bg-stone-100 transition-colors rounded-full active:scale-95">
+                <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+            </button>
+            <div class="flex-1 px-4">
+                <div class="h-1.5 w-full bg-surface-container-low rounded-full overflow-hidden">
+                    <div class="h-full bg-primary-container w-full shadow-[0_0_8px_rgba(210,251,59,0.5)]"></div>
+                </div>
+            </div>
+            <div class="w-10 text-right">
+                <span class="text-[10px] font-bold tracking-widest text-primary uppercase">2/4</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24 pb-12 px-6 max-w-[420px] mx-auto min-h-screen flex flex-col justify-center">
+        <!-- Editorial Header Section -->
+        <div class="mb-10 pl-2">
+            <h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2 leading-tight">
+                Save your progress
+            </h1>
+            <p class="text-on-surface-variant text-lg font-medium">
+                Create a free account.
+            </p>
+        </div>
+        <!-- Form Section -->
+        <div class="space-y-6">
+            <div class="space-y-4">
+                <!-- Email Input -->
+                <div class="group">
+                    <label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2 ml-1"
+                        for="email">Email address</label>
+                    <div class="relative">
+                        <input id="email"
+                            class="w-full bg-surface-container-low border-none rounded-lg px-4 py-4 text-on-surface placeholder:text-outline-variant focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-highest transition-all outline-none"
+                            id="email" placeholder="name@Meditrip.it" type="email" />
+                    </div>
+                </div>
+                <!-- Password Input -->
+                <div class="group">
+                    <label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2 ml-1"
+                        for="password">Password</label>
+                    <div class="relative">
+                        <input id="password"
+                            class="w-full bg-surface-container-low border-none rounded-lg px-4 py-4 text-on-surface placeholder:text-outline-variant focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-highest transition-all outline-none"
+                            id="password" placeholder="••••••••" type="password" />
+                        <button
+                            class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined text-xl" data-icon="visibility">visibility</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Primary CTA -->
+            <button
+                class="w-full bg-gradient-to-br from-primary to-primary-dim text-on-primary font-bold py-5 rounded-lg flex items-center justify-center gap-2 shadow-[0_8px_24px_rgba(80,99,0,0.15)] active:scale-[0.98] transition-all">
+                Create account
+                <span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+            </button>
+            <!-- Divider -->
+            <div class="relative flex items-center py-4">
+                <div class="flex-grow border-t border-surface-container-highest"></div>
+                <span
+                    class="flex-shrink mx-4 text-xs font-bold text-outline-variant uppercase tracking-widest">or</span>
+                <div class="flex-grow border-t border-surface-container-highest"></div>
+            </div>
+            <!-- Social Login Stack -->
+            <div class="grid grid-cols-1 gap-3">
+                <button
+                    class="w-full bg-surface-container-lowest border border-surface-container-highest text-on-surface font-semibold py-4 rounded-lg flex items-center justify-center gap-3 hover:bg-surface-container-low active:scale-[0.98] transition-all">
+                    <img alt="Google" class="w-5 h-5 grayscale opacity-80"
+                        data-alt="Official Google logo icon with its signature four colors slightly desaturated to match the clinical aesthetic"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0kA7cbZHgSYKOywGyZUJFnu3evyDPgnhwtZppDJwjKPMyTUCCW3270-DuzqgG8PnF9MKsp_c3aaHuMuYhTkgtHlEZk2F1XpapFOL3-w_gvGubfo8Nvwrg6KpOAos4jlJxTHEHUcxR2qh3mJVZPqa7rSQQHdptMUJHIln2NRhNH4B-hcLs6gA-mc709Sz8AP0NGZCmO-kDbUbfgX0jYOcU-JM5PqTxFSgzrkUYovj8FAH4BxaYKB-puiGY1fQoQiBbXEsSEVJaPlfI" />
+                    Continue with Google
+                </button>
+                <button
+                    class="w-full bg-inverse-surface text-surface-container-lowest font-semibold py-4 rounded-lg flex items-center justify-center gap-3 active:scale-[0.98] transition-all">
+                    <span class="material-symbols-outlined text-xl" data-icon="apple" data-weight="fill"
+                        style="font-variation-settings: 'FILL' 1;">ios</span>
+                    Continue with Apple
+                </button>
+            </div>
+        </div>
+        <!-- Terms & Privacy Footnote -->
+        <p class="mt-12 text-center text-[11px] text-on-surface-variant leading-relaxed px-6">
+            By creating an account, you agree to CareItaly’s
+            <a class="text-on-surface font-bold underline decoration-primary-container underline-offset-4"
+                href="#">Terms of Service</a>
+            and
+            <a class="text-on-surface font-bold underline decoration-primary-container underline-offset-4"
+                href="#">Privacy Policy</a>.
+        </p>
+    </main>
+    <!-- Branding Element (Clinical Editorial Style) -->
+    <footer class="fixed bottom-8 w-full pointer-events-none">
+        <div class="max-w-[420px] mx-auto px-6 flex justify-center">
+            <span
+                class="text-2xl font-extrabold tracking-tighter text-surface-container-highest opacity-50 select-none">Vitality</span>
+        </div>
+    </footer>
+    <!-- Background Decoration (Subtle Vitality Glow) -->
+    <div class="fixed top-0 right-0 -z-10 w-[300px] h-[300px] bg-primary-container/10 rounded-full blur-[120px]"></div>
+    <div class="fixed bottom-0 left-0 -z-10 w-[250px] h-[250px] bg-secondary-container/5 rounded-full blur-[100px]">
+    </div>
+</body>
+
+</html>

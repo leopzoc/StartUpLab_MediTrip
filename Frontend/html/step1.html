@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Aggiungi questi due link direttamente qui -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    rel="stylesheet">
+
 <html class="light" lang="en">
 
 <head>
@@ -9,17 +17,17 @@
     <title>Meditrip Onboarding - Step 1</title>
 
     <!-- Importiamo i file CSS locali (Custom Styles) e i Font (già importati e configurati dentro style.css) -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
 
     <!-- Inizializziamo il nostro file Javascript che racchiude i Colori e il design estetico appositamente per Tailwind -->
-    <script src="js/tailwind-config.js"></script>
+    <!-- <script src="js/tailwind-config.js"></script> -->
 
     <!-- Carichiamo il network esterno di Tailwind (attraverso CDN). 
          Questo motore leggerà dinamicamente le classi come "bg-surface" e applicherà i CSS matematicamente perfetti -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
 
-    <script src="js/app.js" defer></script>
+    <script src="../js/app.js" defer></script>
 </head>
 
 
@@ -42,9 +50,7 @@
         <div class="flex items-center justify-between px-6 py-4 max-w-md mx-auto w-full">
 
             <!-- Tasto FRECCIA: active:scale-95 genera una finta transizione di abbassamento elastico quando viene cliccato per dare fisicità -->
-            <span
-                class="material-symbols-outlined text-on-surface-variant cursor-pointer active:scale-95 transition-transform"
-                data-icon="arrow_back">arrow_back</span>
+            <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
 
             <!-- LOGO: "Meditrip" -->
             <span class="font-manrope tracking-tight font-extrabold text-xl text-stone-800">Meditrip</span>
@@ -110,6 +116,26 @@
                 </div>
             </div>
 
+            <!-- GENDER -->
+            <div class="space-y-2">
+                <label class="block text-label-md font-bold text-on-surface-variant ml-1" for="country">HAI IL CAzzO o
+                    la FESsA??</label>
+                <div class="relative">
+
+                    <!-- pl-12 (padding-left 12) "Svuota" il lato sinistro dentro all'input testuale per far letteralmente posto alla bandierina stampata qua sopra -->
+                    <select
+                        class="w-full h-14 bg-surface-container-low border border-gray-200 rounded-lg px-4 text-on-surface appearance-none focus:bg-surface-container-highest focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+                        id="country">
+                        <option value="it">cazzo</option>
+                        <option value="gb">Fessa</option>
+                        <option value="us">avevo il cazzo, ora fessa</option>
+                        <option value="fr">avevo fessa ora cazzo</option>
+                        <option value="de">cazzo, ma mi sento con fessa</option>
+                        <option value="es">fessa, ma mi sento con cazzo</option>
+                    </select>
+                </div>
+            </div>
+
             <!-- [2] Country Searchable Dropdown (Modulo Nazione) -->
             <div class="space-y-2">
                 <label class="block text-label-md font-bold text-on-surface-variant ml-1" for="country">Where are you
@@ -118,7 +144,7 @@
 
                     <!-- pl-12 (padding-left 12) "Svuota" il lato sinistro dentro all'input testuale per far letteralmente posto alla bandierina stampata qua sopra -->
                     <select
-                        class="w-full h-14 bg-surface-container-low border border-gray-200 rounded-lg pl-12 pr-10 text-on-surface appearance-none focus:bg-surface-container-highest focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+                        class="w-full h-14 bg-surface-container-low border border-gray-200 rounded-lg px-4 text-on-surface appearance-none focus:bg-surface-container-highest focus:ring-2 focus:ring-primary/20 transition-all duration-200"
                         id="country">
                         <option value="it">Italy</option>
                         <option value="gb">United Kingdom</option>
