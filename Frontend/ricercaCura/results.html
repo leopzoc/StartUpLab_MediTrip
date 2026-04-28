@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediTrip — Care Options</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="results.css">
+</head>
+<body>
+  <div class="phone-shell" id="phone">
+    <div class="island"></div>
+    <div id="status-bar-container"></div>
+    <div style="padding: 0 20px 10px; display: flex; align-items: center;" id="back-btn-container" data-link="symptoms.html"></div>
+    
+    <div class="scroll-content" style="padding: 4px 20px 24px;">
+      <div style="font-size: 26px; font-weight: 800; color: #1C1C1A; line-height: 1.2; margin-bottom: 4px;">Care options for you</div>
+      <div style="font-size: 15px; color: #888; margin-bottom: 18px;">Based on your symptoms and coverage</div>
+
+      <!-- Filter pills -->
+      <div style="display: flex; gap: 8px; margin-bottom: 20px;" id="filters-container">
+        <!-- Filters injected by results.js -->
+      </div>
+
+      <div id="clinics-container">
+        <!-- Clinics injected by results.js -->
+      </div>
+    </div>
+    <div id="home-indicator-container"></div>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="results.js"></script>
+</body>
+</html>

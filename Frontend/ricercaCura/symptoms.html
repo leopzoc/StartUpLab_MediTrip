@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediTrip — Symptoms</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="symptoms.css">
+</head>
+<body>
+  <div class="phone-shell" id="phone">
+    <div class="island"></div>
+    <div id="status-bar-container"></div>
+    <div style="padding: 0 20px 10px; display: flex; align-items: center;" id="back-btn-container" data-link="body.html"></div>
+    
+    <div class="scroll-content" style="padding: 8px 20px 24px;">
+      <div style="font-size: 11px; font-weight: 700; color: #888; letter-spacing: 0.8px; margin-bottom: 10px;">STEP 2 OF 3</div>
+      <div style="font-size: 28px; font-weight: 800; color: #1C1C1A; line-height: 1.2; margin-bottom: 6px;">
+        What are your symptoms?
+      </div>
+      <div style="font-size: 15px; color: #888; margin-bottom: 22px;">Select all that apply</div>
+
+      <div id="symptoms-grid">
+        <!-- Symptoms will be injected by symptoms.js -->
+      </div>
+    </div>
+
+    <div style="padding: 12px 20px; background: #fff; border-top: 1px solid #F0F0F0;">
+      <button class="btn-lime disabled" id="next-btn" style="pointer-events: none;">
+        Find care for me →
+      </button>
+    </div>
+    <div id="home-indicator-container"></div>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="symptoms.js"></script>
+</body>
+</html>

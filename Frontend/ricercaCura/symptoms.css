@@ -1,0 +1,23 @@
+.symptom-section-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1C1C1A;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+#symptoms-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Copied from body.css since symptoms.js uses these classes now */
+.pill-btn {
+  border: 1.5px solid #EBEBEB; border-radius: 999px;
+  padding: 12px 18px; font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 500; cursor: pointer;
+  background: #fff; color: #1C1C1A;
+  transition: all 0.15s;
+}
+.pill-btn.selected { background: #F0FDFB; border-color: #14B8A6; color: #0F766E; font-weight: 600; }

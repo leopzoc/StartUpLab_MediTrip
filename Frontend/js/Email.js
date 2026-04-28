@@ -45,10 +45,10 @@ if (createAccountBtn) {
         // ... validazione email e password
 
         // Attendi che la richiesta al server finisca prima di cambiare pagina
-        await handleSubmit();
+        //await handleSubmit();
 
         // Vai alla pagina successiva
-        window.location.href = 'Fine.html';
+        window.location.href = '../ricercaCura/home.html';
     });
 }
 

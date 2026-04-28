@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediTrip — Emergency</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="severe.css">
+</head>
+<body>
+  <div class="phone-shell" id="phone" style="background: #1A0A0A;">
+    <div class="island"></div>
+    <div id="status-bar-container" data-dark="true"></div>
+    <div style="padding: 0 20px 10px; display: flex; align-items: center;" id="back-btn-container" data-link="triage.html" data-dark="true"></div>
+    
+    <div class="scroll-content" style="padding: 8px 20px 24px;">
+      <!-- Urgent banner -->
+      <div style="background: #FF4D4D; border-radius: 18px; padding: 16px 20px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+        <span style="font-size: 26px;">🚨</span>
+        <div>
+          <div style="font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.7); margin-bottom: 2px;">EMERGENCY MODE</div>
+          <div style="font-size: 15px; font-weight: 700; color: #fff;">Get help immediately</div>
+        </div>
+      </div>
+
+      <div style="font-size: 32px; font-weight: 900; color: #fff; line-height: 1.2; margin-bottom: 20px;">Get help now</div>
+
+      <!-- Nearest ER -->
+      <div style="background: #2A1010; border-radius: 20px; padding: 20px; margin-bottom: 14px; border: 1.5px solid #3D1515;">
+        <div style="font-size: 11px; font-weight: 700; color: #FF7070; letter-spacing: 0.8px; margin-bottom: 10px;">NEAREST EMERGENCY ROOM</div>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+          <span style="font-size: 20px;">📍</span>
+          <div style="font-size: 18px; font-weight: 800; color: #fff;">Ospedale Policlinico</div>
+        </div>
+        <div style="font-size: 14px; color: #FF9999; margin-left: 30px; margin-bottom: 14px;">0.8 km away</div>
+        <div style="display: flex; gap: 10px;">
+          <div style="background: #3D1515; border-radius: 12px; padding: 10px 14px; text-align: center; flex: 1;">
+            <div style="font-size: 20px; font-weight: 800; color: #fff;">~12</div>
+            <div style="font-size: 11px; color: #FF9999;">min walking</div>
+          </div>
+          <div style="background: #3D1515; border-radius: 12px; padding: 10px 14px; text-align: center; flex: 1;">
+            <div style="font-size: 20px; font-weight: 800; color: #fff;">~5</div>
+            <div style="font-size: 11px; color: #FF9999;">min by taxi</div>
+          </div>
+          <div style="background: #3D1515; border-radius: 12px; padding: 10px 14px; text-align: center; flex: 1;">
+            <div style="font-size: 20px; font-weight: 800; color: #fff;">~8</div>
+            <div style="font-size: 11px; color: #FF9999;">min by bus</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Directions -->
+      <div style="background: #1E1E1E; border-radius: 20px; padding: 18px; margin-bottom: 14px;">
+        <div style="font-size: 13px; font-weight: 700; color: #888; margin-bottom: 12px;">GET DIRECTIONS VIA</div>
+        <div style="display: flex; gap: 8px;">
+          <div style="flex: 1; background: #2A2A2A; border-radius: 12px; padding: 10px 8px; text-align: center; cursor: pointer; font-size: 13px; font-weight: 600; color: #fff;">🚶 Walk</div>
+          <div style="flex: 1; background: #2A2A2A; border-radius: 12px; padding: 10px 8px; text-align: center; cursor: pointer; font-size: 13px; font-weight: 600; color: #fff;">🚌 Bus</div>
+          <div style="flex: 1; background: #2A2A2A; border-radius: 12px; padding: 10px 8px; text-align: center; cursor: pointer; font-size: 13px; font-weight: 600; color: #fff;">🚕 Taxi</div>
+        </div>
+      </div>
+
+      <!-- Call 118 -->
+      <button class="btn-coral" style="margin-bottom: 12px; font-size: 18px; padding: 20px;">
+        📞 Call 118
+      </button>
+
+      <div style="text-align: center; font-size: 13px; color: #666; line-height: 1.5;">
+        118 is Italy's free emergency number.<br/>Available 24/7.
+      </div>
+    </div>
+    
+    <div id="home-indicator-container" data-dark="true"></div>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="severe.js"></script>
+</body>
+</html>

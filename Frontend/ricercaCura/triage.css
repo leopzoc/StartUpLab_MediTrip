@@ -1,0 +1,26 @@
+.triage-card {
+  border-radius: 22px; 
+  padding: 22px; 
+  cursor: pointer;
+}
+
+.severe-card {
+  background: linear-gradient(135deg, #FF4D4D 0%, #E63030 100%);
+  box-shadow: 0 6px 24px rgba(255,77,77,0.28);
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+
+.severe-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(255,77,77,0.35);
+}
+
+.mild-card {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  border: 1.5px solid #FDE68A;
+  transition: transform 0.12s;
+}
+
+.mild-card:hover {
+  transform: translateY(-2px);
+}

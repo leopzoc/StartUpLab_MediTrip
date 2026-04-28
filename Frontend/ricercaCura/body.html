@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediTrip — Body</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="body.css">
+</head>
+<body>
+  <div class="phone-shell" id="phone">
+    <div class="island"></div>
+    <div id="status-bar-container"></div>
+    <div style="padding: 0 20px 10px; display: flex; align-items: center;" id="back-btn-container" data-link="triage.html"></div>
+    
+    <div class="scroll-content" style="padding: 8px 20px 24px;">
+      <div style="font-size: 11px; font-weight: 700; color: #888; letter-spacing: 0.8px; margin-bottom: 10px;">STEP 1 OF 3</div>
+      <div style="font-size: 28px; font-weight: 800; color: #1C1C1A; line-height: 1.2; margin-bottom: 6px;">Where does it hurt?</div>
+      <div style="font-size: 15px; color: #888; margin-bottom: 24px;">Tap the area that's bothering you</div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;" id="body-areas-grid">
+        <!-- Body areas will be injected by body.js -->
+      </div>
+    </div>
+
+    <div style="padding: 12px 20px; background: #fff; border-top: 1px solid #F0F0F0;">
+      <a href="symptoms.html" class="btn-lime disabled" id="next-btn" style="pointer-events: none;">
+        Next →
+      </a>
+    </div>
+    <div id="home-indicator-container"></div>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="body.js"></script>
+</body>
+</html>

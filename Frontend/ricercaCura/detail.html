@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediTrip — Clinic Detail</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+  <div class="phone-shell" id="phone">
+    <div class="island"></div>
+    <div id="status-bar-container"></div>
+    <div style="padding: 0 20px 10px; display: flex; align-items: center;" id="back-btn-container" data-link="results.html"></div>
+    
+    <div class="scroll-content" style="padding: 4px 20px 24px;">
+      <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;">
+        <div style="flex: 1;">
+          <div style="font-size: 26px; font-weight: 800; color: #1C1C1A; line-height: 1.2;">Policlinico Sant'Orsola</div>
+        </div>
+      </div>
+      <div style="display: flex; gap: 8px; margin-bottom: 20px;">
+        <span class="badge badge-teal">Public</span>
+        <span class="badge badge-green">✓ Covered by insurance</span>
+      </div>
+
+      <!-- Map -->
+      <div class="map-placeholder" style="margin-bottom: 20px;">
+        <div style="position: relative; z-index: 1; text-align: center;">
+          <div style="font-size: 32px;">📍</div>
+          <div style="font-size: 13px; font-weight: 600; color: #4B5563; margin-top: 4px;">Via Massarenti 9, Bologna</div>
+        </div>
+      </div>
+
+      <!-- Info rows -->
+      <div id="info-rows-container">
+        <!-- Injected by detail.js -->
+      </div>
+    </div>
+
+    <div style="padding: 12px 20px; background: #fff; border-top: 1px solid #F0F0F0; display: flex; gap: 12px;">
+      <button class="btn-outline" style="flex: 1;">Get directions</button>
+      <button
+        class="btn-lime"
+        id="im-going-btn"
+        style="flex: 1.4; transition: background 0.25s, color 0.25s;"
+      >
+        I'm going here
+      </button>
+    </div>
+    
+    <div id="home-indicator-container"></div>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="detail.js"></script>
+</body>
+</html>

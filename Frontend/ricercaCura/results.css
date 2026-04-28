@@ -1,0 +1,12 @@
+.clinic-card-featured { border: 1.5px solid #14B8A6; border-radius: 20px; overflow: hidden; margin-top: 12px; cursor: pointer; background: #fff; transition: box-shadow 0.15s; }
+.clinic-card { border: 1.5px solid #EBEBEB; border-radius: 20px; overflow: hidden; margin-top: 12px; cursor: pointer; background: #fff; transition: box-shadow 0.15s; }
+.featured-banner { background: #14B8A6; padding: 6px 16px; font-size: 12px; font-weight: 700; color: #fff; letter-spacing: 0.4px; }
+
+.filter-btn {
+  border-radius: 999px;
+  padding: 8px 16px; font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 500; cursor: pointer;
+  background: #F7F7F5; border: 1.5px solid #EBEBEB; color: #1C1C1A;
+  transition: all 0.15s;
+}
+.filter-btn.selected { background: #14B8A6; border-color: #14B8A6; color: #fff; }

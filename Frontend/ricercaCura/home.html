@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediTrip — Home</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+  <div class="phone-shell" id="phone">
+    <div class="island"></div>
+    <div id="status-bar-container"></div>
+
+    <div class="scroll-content" style="padding: 4px 20px 20px;">
+      <!-- Greeting -->
+      <div style="margin-bottom: 24px;">
+        <div style="font-size: 13px; font-weight: 600; color: #888; margin-bottom: 4px; letter-spacing: 0.3px;">GOOD
+          MORNING</div>
+        <div id="salutoNome" style="font-size: 28px; font-weight: 800; color: #1C1C1A; line-height: 1.2;">Hello, Emma
+        </div>
+        <div style="font-size: 15px; color: #888; margin-top: 4px;">How can we help you today?</div>
+      </div>
+
+      <!-- I need help card -->
+      <a href="triage.html" class="card"
+        style="background: linear-gradient(135deg, #FFF5F5 0%, #FFD1D1 100%); margin-bottom: 14px; border: 1.5px solid #FF9999; padding: 22px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <div style="font-size: 22px; font-weight: 800; color: #1C1C1A; margin-bottom: 6px;">I need help</div>
+            <div style="font-size: 14px; color: #666; line-height: 1.4;">Find care fast — symptoms,<br />coverage &
+              nearest clinic</div>
+          </div>
+          <div
+            style="width: 52px; height: 52px; border-radius: 16px; background: #FF4D4D; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;">
+            🚨
+          </div>
+        </div>
+        <div style="margin-top: 18px;">
+          <button class="btn-coral"
+            style="border-radius: 12px; padding: 13px 18px; font-size: 15px; pointer-events: none;">
+            Get care now →
+          </button>
+        </div>
+      </a>
+
+      <!-- Two smaller cards -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div class="card" style="background: #F0FDF4; padding: 18px;">
+          <div style="font-size: 26px; margin-bottom: 10px;">🛡️</div>
+          <div style="font-size: 15px; font-weight: 700; color: #1C1C1A;">My coverage</div>
+          <div style="font-size: 12px; color: #888; margin-top: 3px;">EHIC + University</div>
+        </div>
+        <div class="card" style="background: #F8F7FF; padding: 18px;">
+          <div style="font-size: 26px; margin-bottom: 10px;">📄</div>
+          <div style="font-size: 15px; font-weight: 700; color: #1C1C1A;">My documents</div>
+          <div style="font-size: 12px; color: #888; margin-top: 3px;">3 files saved</div>
+        </div>
+      </div>
+
+      <!-- Coverage summary -->
+      <div
+        style="margin-top: 20px; background: #FAFAF8; border-radius: 18px; padding: 18px; border: 1.5px solid #EBEBEB;">
+        <div style="font-size: 12px; font-weight: 700; color: #888; letter-spacing: 0.5px; margin-bottom: 12px;">ACTIVE
+          COVERAGE</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <span class="badge badge-green">✓ EHIC</span>
+          <span class="badge badge-teal">✓ University Insurance</span>
+          <span class="badge badge-lime">IT · Bologna</span>
+        </div>
+        <div style="margin-top: 12px; font-size: 13px; color: #888;">Valid until <strong style="color: #1C1C1A;">Aug 31,
+            2026</strong></div>
+      </div>
+    </div>
+
+    <div id="bottom-nav-container" data-active="home"></div>
+    <div id="home-indicator-container"></div>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="home.js"></script>
+</body>
+
+</html>

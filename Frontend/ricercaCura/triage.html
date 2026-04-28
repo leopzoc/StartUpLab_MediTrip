@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediTrip — Triage</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="triage.css">
+</head>
+<body>
+  <div class="phone-shell" id="phone">
+    <div class="island"></div>
+    <div id="status-bar-container"></div>
+    <div style="padding: 0 20px 10px; display: flex; align-items: center;" id="back-btn-container" data-link="home.html"></div>
+    
+    <div class="scroll-content" style="padding: 8px 20px 28px;">
+      <div style="font-size: 11px; font-weight: 700; color: #888; letter-spacing: 0.8px; margin-bottom: 12px;">HOW ARE YOU FEELING?</div>
+      <div style="font-size: 30px; font-weight: 800; color: #1C1C1A; line-height: 1.2; margin-bottom: 8px;">
+        What's going on?
+      </div>
+      <div style="font-size: 15px; color: #888; margin-bottom: 28px; line-height: 1.5;">
+        Be honest — we'll find the right care for you.
+      </div>
+
+      <!-- Severe card -->
+      <a href="severe.html" class="triage-card severe-card" style="text-decoration: none; display: block; margin-bottom: 14px;">
+        <div style="font-size: 32px; margin-bottom: 10px;">🚨</div>
+        <div style="font-size: 21px; font-weight: 800; color: #fff; margin-bottom: 6px;">I feel very unwell</div>
+        <div style="font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.5;">
+          Severe pain, difficulty breathing,<br/>chest pain, loss of consciousness
+        </div>
+        <div style="margin-top: 16px; display: flex; align-items: center; gap: 6px; color: #fff; font-size: 14px; font-weight: 700;">
+          Get emergency help <span>→</span>
+        </div>
+      </a>
+
+      <!-- Mild card -->
+      <a href="body.html" class="triage-card mild-card" style="text-decoration: none; display: block;">
+        <div style="font-size: 32px; margin-bottom: 10px;">🟡</div>
+        <div style="font-size: 21px; font-weight: 800; color: #1C1C1A; margin-bottom: 6px;">I have a mild issue</div>
+        <div style="font-size: 14px; color: #6B6B68; line-height: 1.5;">
+          Something bothering me but<br/>not an emergency
+        </div>
+        <div style="margin-top: 16px; display: flex; align-items: center; gap: 6px; color: #92400E; font-size: 14px; font-weight: 700;">
+          Find a clinic →
+        </div>
+      </a>
+
+      <div style="margin-top: 18px; text-align: center; font-size: 13px; color: #AAA;">
+        Not sure? Choose mild — we'll guide you.
+      </div>
+    </div>
+    
+    <div id="home-indicator-container"></div>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="triage.js"></script>
+</body>
+</html>
